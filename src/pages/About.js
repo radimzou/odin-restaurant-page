@@ -1,3 +1,7 @@
 const about = "this is about page";
 
-export default about;
+const aboutPageEx = (contentDiv) => {
+  contentDiv.insertAdjacentHTML("beforeend", about);
+};
+
+export default aboutPageEx;

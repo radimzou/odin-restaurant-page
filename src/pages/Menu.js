@@ -1,3 +1,7 @@
 const menu = "This is menu section";
 
-export default menu;
+const aboutPageEx = (contentDiv) => {
+  contentDiv.insertAdjacentHTML("beforeend", menu);
+};
+
+export default aboutPageEx;

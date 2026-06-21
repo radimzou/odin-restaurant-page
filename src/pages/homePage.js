@@ -1,3 +1,5 @@
+import catPhoto from "../assets/photo-var-1.jpg";
+
 const homePage = `<section class="hero-container">
 <div class="hero-image">
 <figure class="my-figure">
@@ -26,4 +28,15 @@ hosté, to velice s chutí spořádá on 😽
 </div>
 </section>`;
 
-export default homePage;
+const homePageEx = (contentDiv) => {
+  contentDiv.insertAdjacentHTML("beforeend", homePage);
+
+  const figureEl = document.querySelector(".my-figure");
+  const figcaptionEL = document.querySelector("figcaption");
+  const catImg = document.createElement("img");
+
+  catImg.src = catPhoto;
+  figureEl.insertBefore(catImg, figcaptionEL);
+};
+
+export default homePageEx;

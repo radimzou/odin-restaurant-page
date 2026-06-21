@@ -1,19 +1,29 @@
 import "./styles.css";
-import catPhoto from "./assets/photo-var-1.jpg";
-import homePage from "./pages/homePage.js";
+import homePageEx from "./pages/homePage.js";
 import aboutPage from "./pages/About.js";
 import menuPage from "./pages/Menu.js";
 
+const homeBtnEl = document.querySelector(".home-btn");
+const menuBtnEl = document.querySelector(".menu-btn");
+const aboutBtnEl = document.querySelector(".about-btn");
+
 const homePageDiv = document.getElementById("content");
-const homeBtnEl = document.getElementsByClassName("home-btn");
-const menuBtnEl = document.getElementsByClassName("menu-btn");
-const aboutBtnEl = document.getElementsByClassName("about-btn");
 
-homePageDiv.insertAdjacentHTML("beforeend", homePage);
+const renderFunc = (pageImport) => {
+  homePageDiv.innerHTML = "";
+  return pageImport(homePageDiv);
+};
 
-const figureEl = document.querySelector(".my-figure");
-const figcaptionEL = document.querySelector("figcaption");
+renderFunc(homePageEx);
 
-const catImg = document.createElement("img");
-catImg.src = catPhoto;
-figureEl.insertBefore(catImg, figcaptionEL);
+homeBtnEl.addEventListener("click", () => {
+  renderFunc(homePageEx);
+});
+
+menuBtnEl.addEventListener("click", () => {
+  renderFunc(menuPage);
+});
+
+aboutBtnEl.addEventListener("click", () => {
+  renderFunc(aboutPage);
+});
